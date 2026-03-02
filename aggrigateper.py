@@ -1,20 +1,26 @@
-def agri_per(n,marks):
-    agripercent=(sum(marks)/(n*100))*100
-    return agripercent
-n=int(input("Total no of cources:"))
-marks=[]
-for i in range(n):
-    
-    score=int(input())
-    if score<40:
-        print("fail")
-    else:
-        marks.append(score)
-agripercent=agri_per(n,marks)        
-print(agripercent)
-if agripercent>75:
-    print("grade A")
-elif agripercent<75 and agripercent>=50:
-    print("grade B")
+# write your code here
+n = int(input())
+marks = list(map(int, input().split()))
+fail=False
+# Check fail condition
+for m in marks:
+	if m < 40:
+		fail=True
+		break
+if fail:
+	print("Fail")
+# If passe
 else:
-    print("grade C")
+	total = sum(marks)
+	percentage = total / n
+
+	print(f"Aggregate Percentage: {percentage:.2f}")
+
+	if percentage >= 75:
+		print("Grade: Distinction")
+	elif percentage >= 60:
+		print("Grade: First Division")
+	elif percentage >= 50:
+		print("Grade: Second Division")
+	else:
+		print("Grade: Third Division")
